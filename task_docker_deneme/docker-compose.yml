@@ -4,5 +4,10 @@ services:
   csv-watcher:
     build: .
     volumes:
-      - ./data:/app/data
-    restart: always 
+      - ./data:/app/data:rw
+    restart: always
+    tty: true
+    stdin_open: true
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python -u app.py 

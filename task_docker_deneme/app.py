@@ -90,6 +90,10 @@ if __name__ == "__main__":
     try:
         while True:
             time.sleep(1)
+            # Her saniye dosyayı kontrol et
+            current_hash = event_handler.get_file_hash(CSV_PATH)
+            if current_hash != event_handler.last_hash:
+                event_handler.on_modified(type('Event', (), {'src_path': CSV_PATH}))
     except KeyboardInterrupt:
         observer.stop()
     observer.join() 
