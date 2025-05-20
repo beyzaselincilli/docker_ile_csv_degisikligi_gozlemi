@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  csv-watcher:
+    build: .
+    volumes:
+      - ./data:/app/data
+    restart: always 
